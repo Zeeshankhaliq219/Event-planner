@@ -7,7 +7,8 @@ export default function Footer() {
     <>
       <div className="container-fluide bg-primary">
         <p className="py-1 fs-6 text-center text-white">
-          &copy; All Rights Reserved {dayjs().format("YYYY")}{" "}
+          &copy; All Rights Reserved {dayjs().format("YYYY")}
+          <span className='text-success ms-2'>DEVELOPED BY ZEESHAN KHALIQ</span>
         </p>
       </div>
     </>

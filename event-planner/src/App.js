@@ -2,11 +2,15 @@ import Routes from './pages/Routes';
 import './globle'
 import './App.scss';
 import { ToastContainer } from "react-toastify";
+import AuthcontextProvider from './context/authcontext';
 
 function App() {
   return (
     <>
+      <AuthcontextProvider>
       <Routes />
+      </AuthcontextProvider>
+        
 
       <ToastContainer
         position="bottom-left"

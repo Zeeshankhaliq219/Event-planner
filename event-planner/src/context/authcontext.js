@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
-import { auth } from "../Auth/firebase";
+import { auth } from "../config/firbase";
 
-export const authcontext = createContext();
+export const Authcontext = createContext();
 
 export default function AuthcontextProvider(props) {
   const [isAuthentication, setIsAuthentication] = useState(false);
@@ -15,8 +15,8 @@ export default function AuthcontextProvider(props) {
   }, []);
 
   return (
-    <authcontext.Provider value={{ isAuthentication, setIsAuthentication }}>
+    <Authcontext.Provider value={{ isAuthentication, setIsAuthentication }}>
       {props.children}
-    </authcontext.Provider>
+    </Authcontext.Provider>
   );
 }

@@ -1,28 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
-  collection,
-  deleteDoc,
   doc,
-  getDocs,
-  query,
   serverTimestamp,
   setDoc,
-  where,
 } from "firebase/firestore";
 import { auth, firestore } from "../../config/firbase";
 import { useNavigate } from "react-router-dom";
-// import { useAuthContext } from "context/AuthContext";
-// import { useNavigate } from "react-router-dom";
+import { Authcontext } from "../../context/authcontext";
+
 
 const initialState = {
-  title: "",
-  location: "",
-  description: "",
-  date: "",
-  time: "",
+    title: "",
+    location: "",
+    description: "",
+    date: "",
+    time: "",
 };
 
 export default function AddEvent() {
+    const { isAuthentication } = useContext(Authcontext);
       const [state, setState] = useState(initialState);
        const [added, setAdded] = useState(false);
        const [loading, seIsLoading] = useState(false);
@@ -31,7 +27,10 @@ export default function AddEvent() {
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+      e.preventDefault();
+      if (!isAuthentication) {
+        return navigate("/Auth/register") 
+      }
     console.log("hhsdddddd");
 
     state.dateCreated = serverTimestamp();

@@ -17,18 +17,15 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("hhsdddddd");
 
-    let { userName, email, password } = state;
+    let { email, password } = state;
 
-    if (!userName) {
-      return window.toastify("Please enter your username correctly", "error");
-    }
+    
     if (!email) {
-      return window.toastify("Please Add Your Email", "error");
+      return window.toastify("Please Add Your correct Email", "error");
     }
     if (password.length < 6) {
-      return window.toastify("Please enter your password >= 6", "error");
+      return window.toastify("Please enter your  correct password", "error");
     }
 
     setIsLoading(true);
@@ -37,6 +34,7 @@ export default function Register() {
         // Signed in
         const user = userCredential.user;
         // ...
+        Navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -44,7 +42,6 @@ export default function Register() {
         setIsLoading(false);
 
       });
-    Navigate("/events");
   };
 
   console.log(state);
@@ -90,7 +87,7 @@ export default function Register() {
                   type="submit"
                   disabled={isLoading}
                 >
-                  {!isLoading ? "sign Up " : "Loading..."}
+                  {!isLoading ? "Login " : "Loading..."}
                 </button>
 
                 <h6 className="text-center text-white">or Sign in using</h6>

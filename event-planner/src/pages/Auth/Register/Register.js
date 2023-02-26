@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../config/firbase";
-import { Link, useNavigate } from "react-router-dom";
+
 
 
 
@@ -20,7 +21,6 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("hhsdddddd");
 
     let { userName, email, password } = state;
 
@@ -47,7 +47,7 @@ export default function Register() {
         setIsLoading(false);
         // ..
       });
-    Navigate ('/events')
+    Navigate ('/')
   };
 
   console.log(state);
