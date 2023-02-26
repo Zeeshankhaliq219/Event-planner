@@ -6,7 +6,7 @@ export default function HeroSection() {
       <div className="container-fluid heroSection d-flex align-item-center ">
         <div className="container">
           <div className="row">
-            <div className="col-5 bg-light mt-5 rounded">
+            <div className="col-12 col-md-5 bg-light mt-5 rounded">
               <div className="p-5 ">
                 <h1 className="">Welcome to our event application!</h1>
               </div>

@@ -13,3 +13,4 @@ window.toastify = (msg, type) => {
   }
 };
 
+window.getRandomId = () => Math.random().toString(36).slice(2);
